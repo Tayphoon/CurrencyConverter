@@ -5,7 +5,10 @@ branches:
   only:
   - master
   - development
-
+  
+before_install:
+  - pod install
+  
 script:
 - xcodebuild clean build test -project CurrencyConverter.xcodeproj -scheme CurrencyConverter -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0'
 
