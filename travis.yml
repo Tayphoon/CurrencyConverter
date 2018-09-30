@@ -1,0 +1,13 @@
+language: swift
+osx_image: xcode10.0
+
+branches:
+  only:
+  - master
+  - development
+
+script:
+- xcodebuild clean build test -project CurrencyConverter.xcodeproj -scheme CurrencyConverter -destination 'platform=iOS Simulator,name=iPhone 8,OS=10.0'
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
